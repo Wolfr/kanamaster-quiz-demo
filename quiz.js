@@ -9,15 +9,14 @@
   $.fn.kanamasterQuiz = function(options) {
 
     var $quizScore = 0;
-    // console.log('Score is: ' + $quizScore);
     var $quizQuestions = $('.quiz__item').length;
-    // console.log('Amount of questions: ' + $quizQuestions);
+
+    $('.quiz__item__input:first').focus();
 
     $('.quiz__item__input').change(function(e) {
       inputField = $(this);
       quizQuestion = $(this).parents('.quiz__item').find('.quiz__item__question').html();
       quizAnswer = $(this).parents('.quiz__item').find('.quiz__item__answer').html();
-      // console.log('Quiz answer is ' + quizAnswer);
       inputtedValue = $(this).val();
       onQuizInput(inputtedValue, inputField, quizAnswer, quizQuestion);
     });
@@ -52,7 +51,7 @@
 
         var mistakeRow = "<tr><td>" + quizQuestion + "</td><td>" + inputtedValue + "</td><td>" + correctAnswer + "</td></tr>";
         // A mistake was made, let's log in in the table
-        $('.quiz-results__mistakes').removeClass('hide').find('table tbody').append(mistakeRow);
+        $('.quiz-results__mistakes').removeClass('hide').find('tbody').append(mistakeRow);
         
       }
     }
@@ -67,11 +66,12 @@
         // Show quiz finished screen
         console.log('Quiz finished!');
         $('.quiz').addClass('hide');
-        $('.quiz__finish').removeClass('hide').addClass('quiz__finish--anim');
+        $('.quiz-finish').removeClass('hide').addClass('quiz-finish--anim');
 
+        $('.quiz-finish__view-score-btn').focus();
         // View score
-        $('.quiz__finish__view-score-btn').click(function(e) {
-          $(this).parents('.quiz__finish').addClass('hide');
+        $('.quiz-finish__view-score-btn').click(function(e) {
+          $(this).parents('.quiz-finish').addClass('hide');
           
           // Check for perfect score whn you arrive at score screen
           if ($quizScore == $quizQuestions) {
@@ -80,12 +80,18 @@
             $('.quiz-results__perfect').removeClass('hide');
           }
 
-          $('.quiz-results').removeClass('hide');
+          $('.quiz-results').removeClass('hide').addClass('quiz-results--anim');
+          
+          $('.quiz-results__again-btn').click(function(e) {
+            // Implement way to try again, reset score to 0 and come back to first slide
+            location.reload();
+          });
         });
       } else {
         // View the next question
         console.log('Next question!!');
         currentQuizItem.next().addClass('quiz__item--active');
+        $('.quiz__item--active .quiz__item__input').focus();
       }
 
     }

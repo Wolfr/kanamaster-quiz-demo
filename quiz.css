@@ -5,6 +5,23 @@
   display: none;
 }
 
+.flex-context {
+  display: flex;
+}
+
+.fullwidth-fullheight-context {
+  width: 100%;
+  height: 100%;
+}
+
+.flex-element {
+  flex: 1;
+}
+
+.flex-element--center {
+  margin: auto;
+}
+
 /* Quiz
    ========================================================================== */
 
@@ -17,22 +34,106 @@
 }
 
 .quiz__item {
-  opacity: 0;
-  position: absolute;
-  top: 0;
+  display: none;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  -webkit-animation-name: switch;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-timing-function: cubic-bezier(0.26, 0.02, 0, 0.95);
+  -webkit-animation-play-state: paused;
 }
 
 .quiz__item--active {
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
-  z-index: 1;
+  display: block;
+  -webkit-animation-play-state: running;
 }
 
-.quiz__finish {
-  opacity: 0;
+.quiz-finish,
+.quiz-results {
+  -webkit-animation-name: popIn;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: cubic-bezier(0.26, 0.02, 0, 0.95);
+  -webkit-animation-play-state: paused;
 }
 
-.quiz__finish.quiz__finish--anim {
-  opacity: 1;
-  transition: opacity 3s cubic-bezier(0.26, 0.02, 0, 0.95);
+.quiz-finish.quiz-finish--anim,
+.quiz-results.quiz-results--anim {
+  -webkit-animation-play-state: running;
+}
+
+@-webkit-keyframes popIn {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    -webkit-transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+  }
+}
+
+@-webkit-keyframes switch {
+  0% {
+    -webkit-transform: scale(0);
+  }
+  50% {
+    -webkit-transform: scale(1.2);
+  }
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+.quiz-results__mistakes { /* table */
+  width: 100%;
+  margin: 0 0 10px;
+}
+
+.quiz-results__mistakes td,
+.quiz-results__mistakes th {
+  border-bottom: 1px solid #EEE;
+  padding: 5px;
+}
+
+.quiz__item__input {
+  text-align: center;
+  min-width: 150px;
+}
+
+.quiz__item__question {
+  font-size: 35px;
+}
+
+.quiz-finish {
+  text-align: center;
+}
+
+.quiz-results {
+  text-align: center;
+}
+
+.quiz-results__result__text {
+  display: block;
+}
+
+.quiz-results__result__self {
+  display: block;
+  font-size: 52px;
+  font-weight: 700;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.quiz-results__perfect {
+  color: green;
+}
+
+.quiz-results__again-btn,
+.quiz-finish__view-score-btn {
+  min-width: 300px;
 }
