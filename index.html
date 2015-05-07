@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <title>Quiz</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="nice.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="quiz.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+  <div class="quiz">
+    <!-- Loop over quiz questions -->
+    <div class="quiz__item quiz__item--active">
+      <div class="quiz__item__question">あ</div>
+      <div class="quiz__item__answer">a</div>
+      <input type="text" class="quiz__item__input">
+    </div>
+    <div class="quiz__item">
+      <div class="quiz__item__question">お</div>
+      <div class="quiz__item__answer">o</div>
+      <input type="text" class="quiz__item__input">
+    </div>
+    <!-- <div class="quiz__item">
+      <div class="quiz__item__question">い</div>
+      <div class="quiz__item__answer">i</div>
+      <input type="text" class="quiz__item__input">
+    </div>
+    <div class="quiz__item">
+      <div class="quiz__item__question">え</div>
+      <div class="quiz__item__answer">e</div>
+      <input type="text" class="quiz__item__input">
+    </div> -->
+  </div>
+  <div class="quiz__finish hide">
+    <p>Finished the quiz!</p>
+    <button class="quiz__finish__view-score-btn">View your score</button>
+  </div>
+  <div class="quiz-log">
+    <!-- As many items as quiz questions -->
+    <div class="quiz-log__item"></div>
+    <div class="quiz-log__item"></div>
+  </div>
+  <div class="quiz-results hide">
+    <p class="quiz-results__result">
+      <span class="quiz-results__result__text">Score:</span>
+      <span class="quiz-results__result__self">0</span>
+    </p>
+    <p class="quiz-results__perfect hide">Perfect score! Omedetou!</p>
+    <div class="quiz-results__mistakes hide">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Your answer</th>
+            <th>Correct answer</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </p>
+  </div>
+  <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
+  <script src="quiz.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

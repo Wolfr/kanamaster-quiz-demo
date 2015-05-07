@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px;
+  border: 1px solid #CCC;
+  box-shadow: inset 2px 2px 0 rgba(0,0,0,0.05);
+}
+
+input, button, textarea {
+  font-size: 14px;
+}
+
+button {
+  border: 1px solid #CCC;
+  background: #EEE;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.table td {
+  border-bottom: 1px solid #CCC;
+}
+
+.quiz {
+  margin: 0 auto;
+  width: 300px;
+}
+
+.quiz__item {
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #CCC;
+  text-align: center;
+}
+
+.quiz__item__input {
+  text-align: center;
+}
+
+.quiz__finish {
+  text-align: center;
+}
+
+.quiz-results {
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
