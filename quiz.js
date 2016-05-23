@@ -11,7 +11,14 @@
     var $quizScore = 0;
     var $quizQuestions = $('.quiz__item').length;
 
-    $('.quiz__item__input:first').focus();
+    // Set total
+    $('.quiz-results__result__questioncount').html($quizQuestions);
+    
+    window.setTimeout(function() {
+      $('.quiz__item--active .quiz__item__input').focus();
+    }, 200)
+    
+    
 
     $('.quiz__item__input').change(function(e) {
       inputField = $(this);
@@ -46,6 +53,11 @@
         console.log('Score is now: ' + $quizScore);
         $('.quiz-results__result__self').html($quizScore);
         
+        $('.feedback--positive').addClass('feedback--anim');
+        window.setTimeout(function() {
+          $('.feedback--positive').removeClass('feedback--anim');
+        }, 1200)
+
       } else {
         console.log('Score is still: ' + $quizScore);
 
@@ -82,6 +94,7 @@
 
           $('.quiz-results').removeClass('hide').addClass('quiz-results--anim');
           
+          $('.quiz-results__again-btn').focus();
           $('.quiz-results__again-btn').click(function(e) {
             // Implement way to try again, reset score to 0 and come back to first slide
             location.reload();
@@ -100,5 +113,7 @@
 })(jQuery);
 
 $(document).ready(function() {
+
   $('body').kanamasterQuiz();
+
 });

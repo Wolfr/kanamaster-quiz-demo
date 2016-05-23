@@ -3,6 +3,7 @@
 <head>
   <title>Quiz demo for Kana master app</title>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="nice.css">
   <link rel="stylesheet" href="quiz.css">
@@ -42,10 +43,12 @@
       <div class="quiz-log__item"></div>
     </div>
     <div class="quiz-results flex-element flex-element--center hide">
-      <p class="quiz-results__result">
-        <span class="quiz-results__result__text">Score:</span>
+      <p class="quiz-results__result__text">Score:</p>
+      <div class="quiz-results__result">
         <span class="quiz-results__result__self">0</span>
-      </p>
+        <span class="quiz-results__result__divider">/</span>
+        <span class="quiz-results__result__questioncount">0</span>
+      </div>
       <p class="quiz-results__perfect hide">Perfect score! Omedetou!</p>
       <table class="quiz-results__mistakes hide">
         <thead>
@@ -61,6 +64,16 @@
       <button class="quiz-results__again-btn">Try again</button>
     </div>
   </div>
+  
+  <div class="feedback-layer fullwidth-fullheight-context">
+    <div class="feedback feedback--positive">
+      <p>Good work!</p>
+    </div>
+    <div class="feedback feedback--negative">
+      <p>Wrong answer!</p>
+    </div>
+  </div>
+  
   <script src="jquery.js" type="text/javascript" charset="utf-8"></script>
   <script src="quiz.js" type="text/javascript" charset="utf-8"></script>
 </body>
